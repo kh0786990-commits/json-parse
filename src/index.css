@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Nastaliq+Urdu:wght@400;700&family=Noto+Naskh+Arabic:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-urdu: "Noto Nastaliq Urdu", serif;
+  --font-arabic: "Noto Naskh Arabic", "Amiri", serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #0A0A0B;
+  color: #E0E0E0;
+}
+
+/* Custom styling for Urdu and Arabic texts to ensure maximum readability */
+.urdu-text {
+  font-family: var(--font-urdu), serif;
+  line-height: 2.2;
+}
+
+.arabic-text {
+  font-family: var(--font-arabic), serif;
+  line-height: 1.8;
+}

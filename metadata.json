@@ -1,0 +1,6 @@
+{
+  "name": "Book PDF and JP2 to JSON Converter",
+  "description": "Convert Arabic-Urdu manuscript PDFs, JP2 files, and images into structured database JSON using Gemini AI, with high-fidelity side-by-side bilingual preview and interactive refinement.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
