@@ -12,9 +12,6 @@ dotenv.config();
 
 // Ensure output directory exists
 const outputDir = path.join(process.cwd(), "output");
-if (!(await fs.access(outputDir).catch(() => false))) {
-  await fs.mkdir(outputDir, { recursive: true });
-}
 
 // Helper to run a shell command
 function runCommand(command: string): Promise<{ stdout: string; stderr: string }> {
@@ -370,6 +367,9 @@ app.post("/api/refine", async (req, res) => {
 });
 
 async function startServer() {
+  // Ensure output directory exists
+  await fs.mkdir(outputDir, { recursive: true });
+
   // Vite dev middleware for asset serving in non-production
   if (process.env.NODE_ENV !== "production") {
     const vite = await createViteServer({
