@@ -39,8 +39,12 @@ async function convertJp2ToJpeg(base64Data: string): Promise<string> {
     await fs.writeFile(inputPath, buffer);
 
     // Convert JP2 to JPEG using ImageMagick (quality 85 to optimize payload size)
-    // Use 'magick' command for ImageMagick v7+ on Windows
-    await runCommand(`magick "${inputPath}" -quality 85 "${outputPath}"`);
+    // Use 'convert' command for Linux/Railway, 'magick' for Windows
+    const platform = process.platform;
+    const command = platform === 'win32' 
+      ? `magick "${inputPath}" -quality 85 "${outputPath}"`
+      : `convert "${inputPath}" -quality 85 "${outputPath}"`;
+    await runCommand(command);
 
     // Read converted JPEG file
     const convertedBuffer = await fs.readFile(outputPath);
